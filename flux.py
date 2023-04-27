@@ -58,7 +58,7 @@ def update(target: Target, account: Account):
         }
         cf.zones.dns_records.put(zone_id, current_record['id'], data=params)
       else:
-        print("No new IP selected, current ip: {}.", current_record['content'])
+        print("No new IP selected, current ip: {}.".format(current_record['content']))
     elif record.create:
       print("Record {} not found. creating one.".format(params['name']))
       params = {
