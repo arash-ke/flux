@@ -1,4 +1,4 @@
-# Ansible Base
+# Flux Python
 Simple script to change DNS record at Cloudflare.
 You can have multiple account and assign a target to an account. each target can update single zone and multiple records.
 
