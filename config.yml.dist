@@ -1,0 +1,22 @@
+---
+accounts: # CloudFlare accounts.
+  main: # Account name. this field is used on targets.
+    api_token: mQmWs6HWKYRx0IpABwSPxTCtzkTd46wmGiDCiJOe # API token from CloudFlare.
+targets: # Targets.
+  - account: main # CloudFlare account to use.
+    zone: example.com # Zone to work on.
+    records: # Records to proccess.
+      - record_type: A # Record type, Mandatory.
+        name: test # Record name. Mandatory.
+        create: false # Create the record if it's not already defined, Default: false.
+        proxied: false # Set record as proxied in CloudFlare. Default: false.
+        comment: "Updated using flux script" # Record comment. Default "".
+        ttl: 3 # Record TTL in minutes. Default: 1
+    ip: # List of IP's to choose from.
+      jsonMyIp: # Use a JSON Api. Optional.
+        - url: https://api.myip.com/ # URL of json API endpoint.
+          field: ip # Field in json response.
+      interfaces: # Interfaces to get IP from. Optional.
+        - eth0
+      list: # List of IP's. Optional
+        - 192.168.0.1
