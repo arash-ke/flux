@@ -29,16 +29,6 @@ class Account:
     for z in zones:
       self.zones[z['name']] = z
   
-  def __str__(self):
-    return "{}".format(self.email)
-  
-  @property
-  def email(self):
-    return self.__email
-  @email.setter
-  def email(self, v):
-    self.__email = v
-  
   @property
   def api_token(self):
     return self.__api_token

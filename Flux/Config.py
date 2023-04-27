@@ -26,7 +26,7 @@ class Config:
     for n, a in self.config_data['accounts'].items():
       account = Account(a)
       self.__accounts[n] = account
-      print("Added account: {} -> {}".format(n, account))
+      print("Added account: {}".format(n))
     for t in self.config_data['targets']:
       target = Target(t)
       self.__targets.append(target)
