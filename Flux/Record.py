@@ -4,6 +4,8 @@
 from __future__ import (absolute_import, division, print_function)
 __metaclass__ = type
 
+import datetime
+
 class Record:
   __record_type = None
   __name = None
@@ -11,6 +13,7 @@ class Record:
   __create = False
   __proxied = False
   __comment = ""
+  __comment_add_date = True
   __tags = []
   
   def __init__(self, record):
@@ -57,10 +60,20 @@ class Record:
     
   @property
   def comment(self):
-    return self.__comment
+    if self.comment_add_date:
+      return "{}{}".format(self.__comment, datetime.datetime.now().ctime())
+    else:
+      return self.__comment
   @comment.setter
   def comment(self, v):
     self.__comment = v
+    
+  @property
+  def comment_add_date(self):
+    return self.__comment_add_date
+  @comment_add_date.setter
+  def comment_add_date(self, v):
+    self.__comment_add_date = v
     
   @property
   def tags(self):
